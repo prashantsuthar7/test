@@ -1,1 +1,516 @@
 https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fmeetup-join%2F19%3Ameeting_MjgyNjU5MGItODcyNi00YTcxLWEyYzgtMDRkMDRkMWEwYTU4%40thread.v2%2F0%3Fcontext%3D%257b%2522Tid%2522%253a%2522d73a7737-4bba-4bc9-8ef6-c6a2314d646f%2522%252c%2522Oid%2522%253a%252226c6547d-a0a2-4997-bd46-66d91b3609dc%2522%257d%26anon%3Dtrue&type=meetup-join&deeplinkId=195aba11-5541-4d1b-a43e-0d877a4f3b17&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true
+
+----------------------------------------------------------------------------
+Use Cheetah
+CREATE TABLE #ProjectList
+( Project_ID INT ,Project_Name VARCHAR(50) NOT NULL,Project_Type VARCHAR(30) NOT NULL,Season VARCHAR(30) NOT NULL,Delivery_Mode VARCHAR(50) NOT NULL)
+
+INSERT INTO #ProjectList
+VALUES 
+--('27005','CS-FULL-CS-1-2020','RR_HEDIS','HEDIS','Onshore')
+('28433','Cambia-RADV-BY2020-REG-MH-UT-2-2021','RR Only','HCC','Onshore'),
+('28434','Cambia-RADV-BY2020-REG-MH-ID-2-2021','RR Only','HCC','Onshore'),
+('28435','Cambia-RADV-BY2020-REG-MH-AS-2-2021','RR Only','HCC','Onshore'),
+('28436','Cambia-RADV-BY2020-REG-MH-OR-2-2021','RR Only','HCC','Onshore'),
+('28437','Cambia-RADV-BY2020-REG-MH-WA-2-2021','RR Only','HCC','Onshore'),
+('28438','Cambia-RADV-BY2020-REG-UT-2-2021','RR Only','HCC','Onshore'),
+('28440','Cambia-RADV-BY2020-REG-ID-2-2021','RR Only','HCC','Onshore'),
+('28441','Cambia-RADV-BY2020-BSH-OR-2-2021','RR Only','HCC','Onshore'),
+('28442','Cambia-RADV-BY2020-AS-2-2021','RR Only','HCC','Onshore'),
+('28443','Cambia-RADV-BY2020-REG-OR-2-2021','RR Only','HCC','Onshore'),
+('28444','Cambia-RADV-BY2020-REG-WA-2-2021','RR Only','HCC','Onshore'),
+('28426','WellMed-NWMSA-RR-1-2021','RR Only','HCC','Onshore'),
+('28427','WellMed-RGV-RR-1-2021','RR Only','HCC','Onshore'),
+('28428','WellMed-UNK-RR-1-2021','RR Only','HCC','Onshore'),
+('26983','CAMBIA-OIGAudit-Provider-RR-1-2020','RR Only','HCC','Onshore'),
+('26984','CAMBIA-OIGAudit-Hospital-RR-1-2020','RR Only','HCC','Onshore'),
+('26997','Triple S-RR-Hospital-1-2020','RR Only','HCC','PR Project'),
+('27072','TSAS-RADV-HOSPITAL-RR-2-2020','RR Only','HCC','PR Project'),
+('27073','TSAS-RADV-PROVIDER-RR-2-2020','RR Only','HCC','PR Project'),
+('27075','HUMANA-CRA-TX-RA-RR-1-2020','RR Only','HCC','Onshore'),
+('27077','HUMANA-RADV-PR-RR-2014 DOS-1-2020','RR Only','HCC','PR Project'),
+('27102','CAMBIA-CONRADV-H5009-RR-1-2020','RR Only','HCC','Onshore'),
+('27103','LA Care-EDV-RR-1-2020','RR Only','HCC','Onshore'),
+('27138','TSA-Hospital-RADV-PR-RR-2017 DOS-2-2020','RR Only','HCC','PR Project'),
+('27144','TSA-Provider-RADV-PR-RR-2017 DOS-2-2020','RR Only','HCC','PR Project'),
+('27156','HUMANA-PDV-PR-RA-RR-1-2020','RR Only','HCC','PR Project'),
+('27158','WellMed-Moonshot-RR-1-2020','RR Only','HCC','Onshore'),
+('27159','WellMed-THC Assoc-RR-1-2020','RR Only','HCC','Onshore'),
+('27160','WellMed-TMP-RR-1-2020','RR Only','HCC','Onshore'),
+('27161','WellMed-SWFL-RR-1-2020','RR Only','HCC','Onshore'),
+('27162','WellMed-ORL-RR-1-2020','RR Only','HCC','Onshore'),
+('27163','WellMed-NEFL-RR-1-2020','RR Only','HCC','Onshore'),
+('27164','WellMed-NM Affiliate-RR-1-2020','RR Only','HCC','Onshore'),
+('27165','WellMed-HOU-RR-1-2020','RR Only','HCC','Onshore'),
+('27166','MMM-FL-HEDIS-RR-1-2020','RR Only','HCC','Offshore'),
+('27172','WellMed-DNG-RR-1-2020','RR Only','HCC','Onshore'),
+('27218','OC_NV-RROnly-1-2020','RR Only','HCC','Onshore'),
+('27220','IH-MA-FTI-RROnly-1-2020','RR Only','HCC','Onshore'),
+('27221','HUMANA-MRA-TX-RA-RR-1-2020','RR Only','HCC','Onshore'),
+('27222','HUMANA-MRA-USA-RA-RR-1-2020','RR Only','HCC','Onshore'),
+('27223','HUMANA-PDV-TX-RA-RR-1-2020','RR Only','HCC','Onshore'),
+('27224','HUMANA-ROI-USA-RR-1-2020','RR Only','HCC','Onshore'),
+('27225','HUMANA-PDV-USA-RA-RR-1-2020','RR Only','HCC','Onshore'),
+('27231','NAMM-CA-EPMG-RR-1-2020','RR Only','HCC','Onshore'),
+('27232','NAMM-CA-MPMG-RR-1-2020','RR Only','HCC','Onshore'),
+('27233','NAMM-CA-PCAMG-RR-1-2020','RR Only','HCC','Onshore'),
+('27234','NAMM-CA-PMNI-RR-1-2020','RR Only','HCC','Onshore'),
+('27235','NAMM-CA-RPN-RR-1-2020','RR Only','HCC','Onshore'),
+('27236','NAMM-CA-SBMG-RR-1-2020','RR Only','HCC','Onshore'),
+('27278','Triple S_Adhoc_MRT-RR-1-2020','RR Only','HCC','PR Project'),
+('27279','NMM-CFC-IPA-RR-1-2020','RR Only','HCC','Onshore'),
+('27288','HUMANA-MRA-TX-RA-RR-2-2020','RR Only','HCC','Onshore'),
+('27289','HUMANA-CRA-RA-RR-1-2020','RR Only','HCC','Onshore'),
+('27320','HUMANA-MRA-TX-RA-RR-3-2020','RR Only','HCC','Onshore'),
+('27321','HUMANA-FL-RA-RR-1-2020','RR Only','HCC','Onshore'),
+('27326','HUMANA-PR-PROVIDER-RA-RR-1-2020','RR Only','HCC','PR Project'),
+('27334','HUMANA-PDV-PR-RA-RR-2-2020','RR Only','HCC','PR Project'),
+('27343','HUMANA-Self Audit-Mock-RADV-PR-RR-1-2020','RR Only','HCC','PR Project'),
+('27394','WellMed-AUS-RR-1-2020','RR Only','HCC','Onshore'),
+('27395','WellMed-RGV-RR-1-2020','RR Only','HCC','Onshore'),
+('27406','IH-RR-Workbench-1-2020','RR Only','HCC','Onshore'),
+('27474','HUMANA-MRA-TX-RA-RR-4-2020','RR Only','HCC','Onshore'),
+('27542','HUMANA-MRA-TX-RA-RR-5-2020','RR Only','HCC','Onshore'),
+('27562','HUMANA-PR-PROVIDER-RA-RR-2-2020','RR Only','HCC','PR Project'),
+('27564','HUMANA-MRA-TX-RA-RR-6-2020','RR Only','HCC','Onshore'),
+('27568','HUMANA-PR-PROVIDER-RA-RR-3-2020','RR Only','HCC','PR Project'),
+('27665','MMM-VIP-RR-1-2021','RR Only','HCC','PR Project'),
+('27678','Conifer-FCMG-RR-2-2021','RR Only','HCC','Offshore'),
+('27679','Conifer-Premier_Lakewood-RR-2-2021','RR Only','HCC','Offshore'),
+('27680','HUMANA-PR-PROVIDER-RA-RR-4-2020','RR Only','HCC','PR Project'),
+('27743','LA Care-HHS-RADV-1-2021','RR Only','HCC','Onshore'),
+('27789','HUMANA-PDV-USA-RA-RR-1-2021','RR Only','HCC','Onshore'),
+('27790','HUMANA-PDV-PR-RA-RR-1-2021','RR Only','HCC','PR Project'),
+('27801','Triple S-RR-Hospital-1-2021','RR Only','HCC','PR Project'),
+('27803','Cambia-RADV-CY2019-AS-1-2021','RR Only','HCC','Offshore'),
+('27804','Cambia-RADV-CY2019-AS-MH-1-2021','RR Only','HCC','Offshore'),
+('27805','Cambia-RADV-CY2019-BSH-MH-WA-1-2021','RR Only','HCC','Offshore'),
+('27806','Cambia-RADV-CY2019-BSH-WA-1-2021','RR Only','HCC','Offshore'),
+('27807','Cambia-RADV-CY2019-REG-ID-1-2021','RR Only','HCC','Offshore'),
+('27808','Cambia-RADV-CY2019-REG-MH-ID-1-2021','RR Only','HCC','Offshore'),
+('27809','Cambia-RADV-CY2019-REG-MH-OR-1-2021','RR Only','HCC','Offshore'),
+('27810','Cambia-RADV-CY2019-REG-MH-UT-1-2021','RR Only','HCC','Offshore'),
+('27811','Cambia-RADV-CY2019-REG-MH-WA-1-2021','RR Only','HCC','Offshore'),
+('27812','Cambia-RADV-CY2019-REG-OR-1-2021','RR Only','HCC','Offshore'),
+('27813','Cambia-RADV-CY2019-REG-UT-1-2021','RR Only','HCC','Offshore'),
+('27814','Cambia-RADV-CY2019-REG-WA-1-2021','RR Only','HCC','Offshore'),
+('27881','WellMed-Moonshot-RR-1-2021','RR Only','HCC','Onshore'),
+('27882','WellMed-CC-RR-1-2021','RR Only','HCC','Onshore'),
+('27883','WellMed-DAFF-RR-1-2021','RR Only','HCC','Onshore'),
+('27884','WellMed-DNG-RR-1-2021','RR Only','HCC','Onshore'),
+('27885','WellMed-NEFL-RR-1-2021','RR Only','HCC','Onshore'),
+('27886','WellMed-ORL-RR-1-2021','RR Only','HCC','Onshore'),
+('27887','WellMed-SWFL-RR-1-2021','RR Only','HCC','Onshore'),
+('27888','WellMed-THC Assoc-RR-1-2021','RR Only','HCC','Onshore'),
+('27889','WellMed-TMP-RR-1-2021','RR Only','HCC','Onshore'),
+('27890','WellMed-Waco-RR-1-2021','RR Only','HCC','Onshore'),
+('27900','WellMed-SWNM-RR-1-2021','RR Only','HCC','Onshore'),
+('27911','TSAS_Adhoc_MRT- RR-2-2021','RR Only','HCC','PR Project'),
+('27938','TSAS-OIG-Provider-RR-1-2021','RR Only','HCC','PR Project'),
+('27939','TSAS-OIG-Hospital-RR-1-2021','RR Only','HCC','PR Project'),
+('27943','Triple S_Adhoc_MRT-RR-1-2021','RR Only','HCC','PR Project'),
+('27946','LA Care-HHS-RADV_BY2020-1-2021','RR Only','HCC','Onshore'),
+('27986','NAMM-CA-EPMG-RR-1-2021','RR Only','HCC','Onshore'),
+('27987','OC_NV-RROnly-1-2021','RR Only','HCC','Onshore'),
+('27988','NAMM-CA-MPMG-RR-1-2021','RR Only','HCC','Onshore'),
+('27989','NAMM-CA-PCAMG-RR-1-2021','RR Only','HCC','Onshore'),
+('27990','NAMM-CA-PMNI-RR-1-2021','RR Only','HCC','Onshore'),
+('27995','HUMANA-RADV_HSA_ PR-RA-RR-1-2021','RR Only','HCC','PR Project'),
+('28038','HUMANA-MRA-USA-RA-RR-1-2021','RR Only','HCC','Onshore'),
+('28039','Humana-PR-RA-RR-1-2021','RR Only','HCC','PR Project'),
+('28040','HUMANA-PR-HOSPITAL-RA-RR-1-2021','RR Only','HCC','PR Project'),
+('28041','HUMANA-ROI-USA-RR-1-2021','RR Only','HCC','Onshore'),
+('28043','Cambia-RADV-CY2019-REG-UT-2-2021','RR Only','HCC','Onshore'),
+('28044','Cambia-RADV-CY2019-AS-2-2021','RR Only','HCC','Onshore'),
+('28045','Cambia-RADV-CY2019-BSH-OR-2-2021','RR Only','HCC','Onshore'),
+('28046','Cambia-RADV-CY2019-BSH-WA-2-2021','RR Only','HCC','Onshore'),
+('28047','Cambia-RADV-CY2019-REG-ID-2-2021','RR Only','HCC','Onshore'),
+('28048','Cambia-RADV-CY2019-REG-OR-2-2021','RR Only','HCC','Onshore'),
+('28049','Cambia-RADV-CY2019-REG-WA-2-2021','RR Only','HCC','Onshore'),
+('28050','Cambia-RADV-CY2019-REG-MH-UT-2-2021','RR Only','HCC','Onshore'),
+('28051','Cambia-RADV-CY2019-BSH-MH-WA-2-2021','RR Only','HCC','Onshore'),
+('28052','Cambia-RADV-CY2019-AS-MH-2-2021','RR Only','HCC','Onshore'),
+('28053','Cambia-RADV-CY2019-REG-MH-OR-2-2021','RR Only','HCC','Onshore'),
+('28054','HUMANA-FL-RA-RR-1-2021','RR Only','HCC','Onshore'),
+('28119','IH-OIG-RR-1-2021','RR Only','HCC','Onshore'),
+('28186','Cambia-RADV-CY2019-REG-WA-3-2021','RR Only','HCC','Offshore'),
+('28187','Cambia-RADV-CY2019-REG-MH-WA-3-2021','RR Only','HCC','Offshore'),
+('28188','Cambia-RADV-CY2019-REG-OR-3-2021','RR Only','HCC','Offshore'),
+('28189','Cambia-RADV-CY2019-REG-MH-OR-3-2021','RR Only','HCC','Offshore'),
+('28236','Cambia-RADV-BY2020-AS-1-2021','RR Only','HCC','Offshore'),
+('28237','Cambia-RADV-BY2020-REG-MH-AS-1-2021','RR Only','HCC','Offshore'),
+('28238','Cambia-RADV-BY2020-BSH-OR-1-2021','RR Only','HCC','Offshore'),
+('28239','Cambia-RADV-BY2020-BSH-MH-OR-1-2021','RR Only','HCC','Offshore'),
+('28240','Cambia-RADV-BY2020-REG-ID-1-2021','RR Only','HCC','Offshore'),
+('28241','Cambia-RADV-BY2020-REG-MH-ID-1-2021','RR Only','HCC','Offshore'),
+('28242','Cambia-RADV-BY2020-REG-MH-OR-1-2021','RR Only','HCC','Offshore'),
+('28243','Cambia-RADV-BY2020-REG-OR-1-2021','RR Only','HCC','Offshore'),
+('28244','Cambia-RADV-BY2020-REG-UT-1-2021','RR Only','HCC','Offshore'),
+('28245','Cambia-RADV-BY2020-REG-MH-UT-1-2021','RR Only','HCC','Offshore'),
+('28246','Cambia-RADV-BY2020-REG-WA-1-2021','RR Only','HCC','Offshore'),
+('28247','Cambia-RADV-BY2020-REG-MH-WA-1-2021','RR Only','HCC','Offshore'),
+('28275','BMCHP-HRADV-BY2020-1-2021','RR Only','HCC','Offshore'),
+('28276','BMCHP-HRADV_BH-BY2020-1-2021','RR Only','HCC','Offshore'),
+('26996','EI-RR Only-OFF-2020','RR Only','HEDIS','Offshore'),
+('26998','EI-RR Only-ON-2020','RR Only','HEDIS','Onshore'),
+('27001','CS-RR Only-CS-3-2020','RR Only','HEDIS','Onshore'),
+('27002','CS-RR Only-CS-4-2020','RR Only','HEDIS','Onshore'),
+('27054','CS-RR Only-CS-1-2020','RR Only','HEDIS','Onshore'),
+('27076','HUMANA-HEDIS-PR-RR-1-2020','RR Only','HEDIS','PR Project'),
+('27686','EI-RR Only-2021','RR Only','HEDIS','Onshore'),
+('27687','CS-RR Only-CS-1-2021','RR Only','HEDIS','Onshore'),
+('27688','CS-RR Only-CS-2-2021','RR Only','HEDIS','Onshore'),
+('27689','CS-RR Only-CS-3-2021','RR Only','HEDIS','Onshore'),
+('27690','CS-RR Only-CS-4-2021','RR Only','HEDIS','Onshore'),
+('27692','CS-RR Only-CS-5-2021','RR Only','HEDIS','Onshore'),
+('27716','APA-ACO-RR-1-2021','RR Only','HEDIS','Onshore'),
+('27733','HUMANA-HEDIS-PR-RR-1-2021','RR Only','HEDIS','PR Project'),
+('28417','BMCHP-MRA_SCO-1-2021','RR_HCC','HCC','Onshore'),
+('26948','APA-ACO-1-2020','RR_HEDIS','ACO','Onshore'),
+('26992','APA-ACO-2-2020','RR_HEDIS','ACO','Onshore'),
+('26993','Montefiore-ACO-1-2020','RR_HEDIS','ACO','Onshore'),
+('27017','NSUHS-ACO-2-2020','RR_HEDIS','ACO','Onshore'),
+('26966','AHF-HEDIS-CA-1-2020','RR_HEDIS','HEDIS','Offshore'),
+('26968','AHF-HEDIS-FL-1-2020','RR_HEDIS','HEDIS','Offshore'),
+('27004','EI-FULL-ON-2020','RR_HEDIS','HEDIS','Onshore'),
+('27005','CS-FULL-CS-1-2020','RR_HEDIS','HEDIS','Onshore'),
+('27006','CS-FULL-CS-2-2020','RR_HEDIS','HEDIS','Onshore'),
+('27010','EI-FULL-OFF-2020','RR_HEDIS','HEDIS','Offshore'),
+('27016','BCBSAL-HEDIS-1-2020','RR_HEDIS','HEDIS','Onshore'),
+('27020','CHMP-HEDIS-1-2020','RR_HEDIS','HEDIS','Offshore'),
+('27053','CS-FULL-CS-3-2020','RR_HEDIS','HEDIS','Onshore'),
+('27061','GEHA-HEDIS-1-2020','RR_HEDIS','HEDIS','Onshore'),
+('27067','LA Care-HEDIS-1-2020','RR_HEDIS','HEDIS','Onshore'),
+('27115','CBC-WELLSPAN-HEDIS-1-2020','RR_HEDIS','HEDIS','Onshore'),
+('27116','CBC-HERSHEY-HEDIS-1-2020','RR_HEDIS','HEDIS','Onshore'),
+('27117','CBC-HEDIS-1-2020','RR_HEDIS','HEDIS','Onshore'),
+('27507','Sutter Health Plus-HEDIS-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27630','AHF-HEDIS-FL-1-2021','RR_HEDIS','HEDIS','Offshore'),
+('27631','AHF-HEDIS-GA-1-2021','RR_HEDIS','HEDIS','Offshore'),
+('27673','AHF-HEDIS-CA-1-2021','RR_HEDIS','HEDIS','Offshore'),
+('27674','AHP-HEDIS-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27681','EI-FULL-OFF-2021','RR_HEDIS','HEDIS','Offshore'),
+('27683','EI-FULL-ON-2021','RR_HEDIS','HEDIS','Onshore'),
+('27694','CS-FULL-CS-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27695','CS-FULL-CS-2-2021','RR_HEDIS','HEDIS','Onshore'),
+('27696','CS-FULL-CS-3-2021','RR_HEDIS','HEDIS','Onshore'),
+('27698','CS-FULL-CS-5-2021','RR_HEDIS','HEDIS','Onshore'),
+('27706','BCBSAL-HEDIS-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27717','CHMP-HEDIS-1-2021','RR_HEDIS','HEDIS','Offshore'),
+('27729','PSM-HEDIS-1-2021','RR_HEDIS','HEDIS','PR Project'),
+('27738','GEHA-HEDIS-Traditional-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27739','GEHA-HEDIS-IBP-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27742','CBC-HEDIS-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27780','CBC-HERSHEY-HEDIS-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('27781','CBC-WELLSPAN-HEDIS-1-2021','RR_HEDIS','HEDIS','Onshore'),
+('26925','IH-ACA-1-2020','RR_HCC','HCC','Onshore'),
+('26978','CareSource-ACA-1-2020','RR_HCC','HCC','Onshore'),
+('26981','Fallon-Commercial-1-2020','RR_HCC','HCC','Offshore'),
+('27012','LA CARE-ACA-2-2020','RR_HCC','HCC','Onshore'),
+('27023','DHP-ACA-Dean Medical-1-2020','RR_HCC','HCC','Onshore'),
+('27024','DHP-ACA-Prevea 360-1-2020','RR_HCC','HCC','Onshore'),
+('27101','MMM-RADV-PR-RR+Coding-2014 DOS-1-2020','RR_HCC','HCC','PR Project'),
+('27169','SHP-HCC-1-2020_Fall_Sweep','RR_HCC','HCC','Offshore'),
+('27182','CAMBIA-MRA-AS-1-2020','RR_HCC','HCC','Onshore'),
+('27183','CAMBIA-MRA-MH-AS-1-2020','RR_HCC','HCC','Onshore'),
+('27184','CAMBIA-MRA-ID-1-2020','RR_HCC','HCC','Onshore'),
+('27185','CAMBIA-MRA-MH-ID-1-2020','RR_HCC','HCC','Onshore'),
+('27186','CAMBIA-MRA-OR-1-2020','RR_HCC','HCC','Onshore'),
+('27187','CAMBIA-MRA-UT-1-2020','RR_HCC','HCC','Onshore'),
+('27188','CAMBIA-MRA-MH-OR-1-2020','RR_HCC','HCC','Onshore'),
+('27190','CAMBIA-MRA-MH-UT-1-2020','RR_HCC','HCC','Onshore'),
+('27191','CAMBIA-MRA-MH-WA-1-2020','RR_HCC','HCC','Onshore'),
+('27192','CAMBIA-MRA-WA-1-2020','RR_HCC','HCC','Onshore'),
+('27226','DHP-MA-Dean Medical-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27246','CareSource-HCC-OH-DUAL-1-2020','RR_HCC','HCC','Onshore'),
+('27247','CareSource-HCC-OH-MA-1-2020','RR_HCC','HCC','Onshore'),
+('27275','LA Care-CMC-1-2020','RR_HCC','HCC','Onshore'),
+('27276','NMM-APC-IPA-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27286','MMM-Hospital_Inpatient-1-2020','RR_HCC','HCC','PR Project'),
+('27287','MMM DRG-Based Admissions-2020 RA','RR_HCC','HCC','PR Project'),
+('27311','Fallon-Medicare-1-2020','RR_HCC','HCC','Offshore'),
+('27312','Fallon-Navicare-1-2020','RR_HCC','HCC','Offshore'),
+('27348','GSMHP-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27353','MHC-HHS-1-2020','RR_HCC','HCC','Onshore'),
+('27363','MMM-Confirm_Suspects-2020','RR_HCC','HCC','PR Project'),
+('27364','MMM-Reverse_Suspects-2020','RR_HCC','HCC','PR Project'),
+('27365','MMM-HCC-1-2020 Jan sweep','RR_HCC','HCC','PR Project'),
+('27367','Cambia-MRA-AS-2-2020','RR_HCC','HCC','Onshore'),
+('27368','Cambia-MRA-MH-ID-2-2020','RR_HCC','HCC','Onshore'),
+('27369','Cambia-MRA-MH-WA-2-2020','RR_HCC','HCC','Onshore'),
+('27370','Cambia-MRA-ID-2-2020','RR_HCC','HCC','Onshore'),
+('27371','Cambia-MRA-MH-OR-2-2020','RR_HCC','HCC','Onshore'),
+('27372','Cambia-MRA-OR-2-2020','RR_HCC','HCC','Onshore'),
+('27373','Cambia-MRA-UT-2-2020','RR_HCC','HCC','Onshore'),
+('27374','Cambia-MRA-MH-UT-2-2020','RR_HCC','HCC','Onshore'),
+('27375','Cambia-MRA-MH-AS-2-2020','RR_HCC','HCC','Onshore'),
+('27376','Cambia-MRA-WA-2-2020','RR_HCC','HCC','Onshore'),
+('27390','CAMBIA-Advantasure_OR-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27391','CAMBIA-Advantasure_UT-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27392','CAMBIA-Advantasure_WA-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27393','CAMBIA-Advantasure_ID-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27404','MMM-Reverse_Suspects-2-2020','RR_HCC','HCC','PR Project'),
+('27405','IH-HCC-1-2020','RR_HCC','HCC','Onshore'),
+('27409','CAMBIA-CRA-WA-REG-MH-1-2020','RR_HCC','HCC','Onshore'),
+('27410','CAMBIA-CRA-WA-BSH-MH-1-2020','RR_HCC','HCC','Onshore'),
+('27411','CAMBIA-CRA-WA-REG-1-2020','RR_HCC','HCC','Onshore'),
+('27412','CAMBIA-CRA-WA-BSH-1-2020','RR_HCC','HCC','Onshore'),
+('27413','CAMBIA-CRA-UT-REG-MH-1-2020','RR_HCC','HCC','Onshore'),
+('27414','CAMBIA-CRA-UT-REG-1-2020','RR_HCC','HCC','Onshore'),
+('27415','CAMBIA-CRA-OR-REG-MH-1-2020','RR_HCC','HCC','Onshore'),
+('27416','CAMBIA-CRA-OR-REG-1-2020','RR_HCC','HCC','Onshore'),
+('27417','CAMBIA-CRA-OR-BSH-1-2020','RR_HCC','HCC','Onshore'),
+('27418','CAMBIA-CRA-ID-REG-MH-1-2020','RR_HCC','HCC','Onshore'),
+('27419','CAMBIA-CRA-ID-REG-1-2020','RR_HCC','HCC','Onshore'),
+('27420','CAMBIA-CRA-AS-MH-1-2020','RR_HCC','HCC','Onshore'),
+('27421','CAMBIA-CRA-AS-1-2020','RR_HCC','HCC','Onshore'),
+('27422','CAMBIA-CRA-UT-BSH-1-2020','RR_HCC','HCC','Onshore'),
+('27466','BMCHP-HCC-SCO-1-2020','RR_HCC','HCC','Offshore'),
+('27479','BMCHP-HHS-QHP-1-2020','RR_HCC','HCC','Offshore'),
+('27540','TSAS-HCC-1-2020','RR_HCC','HCC','PR Project'),
+('27625','LA CARE-ACA-1-2021','RR_HCC','HCC','Onshore'),
+('27635','CareSource-ACA-1-2021','RR_HCC','HCC','Onshore'),
+('27718','Fallon-Commercial-1-2021','RR_HCC','HCC','Offshore'),
+('27773','DHP-ACA-Dean Medical-1-2021','RR_HCC','HCC','Onshore'),
+('27774','DHP-ACA-Prevea 360-1-2021','RR_HCC','HCC','Onshore'),
+('27775','DHP-ACA-Wellfirst-1-2021','RR_HCC','HCC','Onshore'),
+('27776','IH-ACA-2-2021','RR_HCC','HCC','Onshore'),
+('27782','BMCHP-HHS-QHP_BH-2-2021','RR_HCC','HCC','Offshore'),
+('27787','BMCHP-HHS-QHP-2-2020','RR_HCC','HCC','Offshore'),
+('27788','MHC-HHS-2-2020','RR_HCC','HCC','Onshore'),
+('27802','MHC-HHS-RADV-1-2021','RR_HCC','HCC','Offshore'),
+('27815','IH-ACA-3-2021','RR_HCC','HCC','Onshore'),
+('27828','MHC-HHS-3-2020','RR_HCC','HCC','Onshore'),
+('27829','IH-ACA-4-2021','RR_HCC','HCC','Onshore'),
+('27836','BMCHP-HHS-NH_Medicaid-1-2021','RR_HCC','HCC','Offshore'),
+('27949','BMCHP-HHS-NH_Medicaid_BH-2-2021','RR_HCC','HCC','Offshore'),
+('28014','LA CARE-Concurrent-ACA-ICD-2-2021','RR_HCC','HCC','Onshore'),
+('28015','LA CARE-Concurrent-HCC-ICD-2-2021	','RR_HCC','HCC','Onshore'),
+('28055','CareSource-HCC-OH-DUAL-1-2021','RR_HCC','HCC','Onshore'),
+('28056','CareSource-HCC-OH-MA-1-2021','RR_HCC','HCC','Offshore'),
+('28167','IH-HCC-1-2021','RR_HCC','HCC','Onshore'),
+('28168','IH-RR-Workbench-1-2021','RR_HCC','HCC','Onshore'),
+('28197','Agilon_HI-HCC-1-2021','RR_HCC','HCC','Offshore'),
+('28201','MHC-HHS-RADV-BY2020-1-2021','RR_HCC','HCC','Offshore'),
+('28217','MMM-Confirm_Suspects-2021','RR_HCC','HCC','PR Project'),
+('28218','MMM-Reverse_Suspects-2021','RR_HCC','HCC','PR Project'),
+('28219','MMM DRG-Based Admissions-2021 RA','RR_HCC','HCC','PR Project'),
+('28220','MMM-HCC-1-2021 Jan sweep','RR_HCC','HCC','PR Project'),
+('28221','MMM-Hospital_Inpatient-1-2021','RR_HCC','HCC','PR Project'),
+('28304','IH-RR-Workbench-Dent-1-2021','RR_HCC','HCC','Onshore'),
+('28323','NMM-MA-1-2021','RR_HCC','HCC','Onshore'),
+('28363','MHC-CRA-1-2021','RR_HCC','HCC','Onshore')
+
+-----------------------------------------ProjectMaster-----------------------------------------------------------------
+Select PL.* ,PM.ProjectStart,PM.ProjectEnd,Round(DATEDIFF(DD,PM.ProjectStart,PM.ProjectEnd)/7,0) as [Project Week]
+	into #ProjectWeekCL
+	from #ProjectList PL
+	inner join ProjectMaster PM on PL.Project_ID = PM.ProjectID
+-------------------------------------------------Project Week Logic--------------------------------------------------------------------------
+Select PLC.* ,
+	(CASE WHEN PLC.[Project Week] < 0
+					THEN '[000-000]'
+					WHEN  PLC.[Project Week] >= 0 AND  PLC.[Project Week] < 6 
+					THEN '[000-005]'
+							WHEN [Project Week] > 5 AND  PLC.[Project Week] < 11 
+							THEN '[006-010]'
+							WHEN  PLC.[Project Week] > 10 AND  PLC.[Project Week] < 16
+							THEN '[011-015]'
+							WHEN  PLC.[Project Week] > 15 AND  PLC.[Project Week] < 21
+							THEN '[016-020]'
+							WHEN  PLC.[Project Week] >= 21 
+							THEN '[021++++]'
+							ELSE 'Other'
+				END) AS [Project_TAT Week Slab]
+
+	into #ProjectWK
+	from #ProjectWeekCL PLC
+
+Drop Table #ProjectList
+Drop Table #ProjectWeekCL
+--------------------------------------ChaseID List-------------------------------------------------------------
+	Select Distinct CM.ChaseID 
+	Into #ChaseID
+	From ChaseMaster as CM
+	Inner Join #ProjectWK as PL on PL.Project_ID = CM.ProjectID and CM.Enabled = 1 and CM.ChaseStatusID in(5,54,74,75,76,77,78,79,80,81,82,83)	
+-----------------------Record Inserted Date ------------------------------------------------------------
+	SELECT distinct CM.ChaseID,CM.ParentDoctorID,CNM.ActionName,CNM.InsertedDatePST,ROW_NUMBER() OVER(Partition by CM.chaseID ORDER BY CNM.InsertedDatePST ASC) AS RowNO
+	Into #RecordInserted
+    FROM            ChaseNoteDetails as CND 
+    INNER JOIN ChaseNoteMaster as CNM ON CND.ChaseNoteID = CNM.ChaseNoteID 
+    INNER JOIN ChaseMaster as CM ON CND.ChaseID = CM.ChaseID
+	Inner Join #ChaseID as PL on PL.ChaseID = CM.ChaseID
+    WHERE  CNM.ActionName in ('Record Inserted')
+-----------------------Record Retrived Date---------------------------------------------------------------------------------
+	SELECT distinct CM.ChaseID,CM.ParentDoctorID,CNM.ActionName,CNM.InsertedDatePST,ROW_NUMBER() OVER(Partition by CM.chaseID ORDER BY CNM.InsertedDatePST ASC) AS RowNO
+	Into #RecordRetreived
+    FROM            ChaseNoteDetails as CND 
+    INNER JOIN ChaseNoteMaster as CNM ON CND.ChaseNoteID = CNM.ChaseNoteID 
+    INNER JOIN ChaseMaster as CM ON CND.ChaseID = CM.ChaseID
+	Inner Join #ChaseID as PL on PL.ChaseID = CM.ChaseID
+    WHERE  (CNM.ActionName in ('Record Retrieved') and cnm.Note like '%Primary Document Attached%' or CNm.ActionName in ('Internal Note') and cnm.Note like '%Primary Document Attached%')
+-----------------------Retrveal Source Name-------------------------------------------------------------------------------------
+	SELECT	DM1.ChaseID,RTm.RetrievalTypeName as RetrievalSource,DFU.DriverName as [MRT Name],DFU.UploadedDate,
+	ROW_NUMBER() Over (Partition By DM1.ChaseID Order by DFU.UploadedDate DESC) as [Row_No]
+	Into #RetrievalSource
+	FROM dbo.DriverFileUpload as DFU
+	INNER JOIN dbo.UploadedDocumentPoolMaster as UDPM ON DFU.DriverFileUploadID = UDPM.DriveFileUploadID
+	Inner join DocumentMaster as DM1 on DM1.UploadedDocumentPoolID = UDPM.UploadedDocumentPoolID
+			AND DM1.Enabled = 1
+			AND DM1.DocumentLibraryID IN (1,2)
+	Inner Join RetrievalTypeMaster as RTM on RTM.RetrievalTypeID = DM1.RetrievalTypeID
+	Inner Join #ChaseID as PL on PL.ChaseID = DM1.ChaseID
+-----------------------------------------Union Of Verification and Callcenter Attempt ASC--------------------------------------------
+;with Verification_Attempt_note (ChaseID,ParentDoctorID,ActionName,InsertedDatePST)
+as (
+SELECT distinct CMV.ChaseID,CMV.ParentDoctorID,CNM.ActionName,CNM.InsertedDatePST--,ROW_NUMBER() OVER(Partition by CMV.chaseID ORDER BY CNM.InsertedDatePST ASC) AS RowNO
+    FROM ChaseNoteDetails as CND 
+    INNER JOIN ChaseNoteMaster as CNM ON CND.ChaseNoteID = CNM.ChaseNoteID 
+    INNER JOIN ChaseMaster as CMV ON CND.ChaseID = CMV.ChaseID
+    Inner Join #ChaseID as PL on PL.ChaseID = CMV.ChaseID
+    WHERE  CNM.ActionName in ('verification Done') ---and CM.ProjectID = 27005
+
+       Union All 
+
+ Select  CMC.ChaseID,CMC.ParentDoctorID,CNM.ActionName,CNM.InsertedDatePST--,ROW_NUMBER() OVER(Partition by CMC.chaseID ORDER BY CNM.InsertedDatePST ASC) AS RowNO
+    --   Into #CallcenterAttmpt
+       from dbo.ChaseNoteDetails CND 
+       inner join ChaseMaster as CMC on CMC.ChaseID = CND.ChaseID 
+       inner join ChaseNoteMaster as CNM on CNM.chaseNoteID = CND.chaseNoteID 
+       inner join UserMaster as UM on UM.UserID = CNM.InsertedBy 
+       inner join AddressMaster as AM on AM.AddressID = UM.AddressID
+	   Inner Join #ChaseID as PL on PL.ChaseID = CMC.ChaseID
+       
+              where (CNM.ActionID in (63,66,67,70,71,72,68,26,12,61,87,52,27,25,34,35,40,54,57,86,62,79,90,93,47,43,41,23,125,60,92,42)
+              or (CNM.ActionID = 45 and CNM.note not like '%for verification%') and CNM.ActionID = 45) 
+              and CNM.modulename = 'call center'
+              and (AM.country not in ( 'india','Pune')  
+              or UM.EmployeeID in (12874,17970,19085,20688,22656,22713,20692,22372,20786,21064,22802,22657,17168,22718,22653,22803,22731,22662,22723,22649,22727,17010,20140,22372))
+              and CMC.[enabled] = 1 
+              --and cm.ProjectID =27005
+     
+)
+Select distinct C.*,ROW_NUMBER() OVER(Partition by C.chaseID ORDER BY C.InsertedDatePST ASC) AS RowNO 
+	into #VCNote
+	from Verification_Attempt_note as C
+	
+	
+----------------------------------------------------------------------------------------------------------------------------------------
+set transaction isolation level read uncommitted
+Select distinct CM.ChaseID,Cm.ChaseStatusName,CM.ProjectID,CM.ProjectName,CM.ClientName,Source.RetrievalSOurce,RIDate.ActionName [RI Action],RIDate.InsertedDatePST as [Record Inserted Date]  ,
+		RRDate.ActionName as [RR Action],RRDate.InsertedDatePST as [Record Retrieved Date],VCN.InsertedDatePST ,--DATEDIFF(DD,RIDate.InsertedDatePST,RRDate.InsertedDatePST) as [TAT Days],DATEDIFF(DD,VCN.InsertedDatePST,RRDate.InsertedDatePST) as [VC_TAT Days],
+		RI_RR_DaysDiff,VCN_RR_DaysDiff,
+		(CASE WHEN RI_RR_DaysDiff <= 0
+					THEN '[000-000]'
+					WHEN RI_RR_DaysDiff > 0 AND RI_RR_DaysDiff < 11 
+					THEN '[001-010]'
+							WHEN RI_RR_DaysDiff > 10 AND RI_RR_DaysDiff < 21 
+							THEN '[011-020]'
+							WHEN RI_RR_DaysDiff > 20 AND RI_RR_DaysDiff < 31
+							THEN '[021-030]'
+							WHEN RI_RR_DaysDiff > 30 AND RI_RR_DaysDiff < 41
+							THEN '[031-040]'
+							WHEN RI_RR_DaysDiff > 40 AND RI_RR_DaysDiff < 51
+							THEN '[041-050]'
+							WHEN RI_RR_DaysDiff > 50 AND RI_RR_DaysDiff < 61
+							THEN '[051-060]'
+							WHEN RI_RR_DaysDiff >= 61 
+							THEN '[061++++]'
+							ELSE 'Other'
+				END) AS [TAT Days Slab],
+				(CASE WHEN VCN_RR_DaysDiff <= 0
+					THEN '[000-000]'
+					WHEN VCN_RR_DaysDiff > 0 AND VCN_RR_DaysDiff < 11 
+					THEN '[001-010]'
+							WHEN VCN_RR_DaysDiff > 10 AND VCN_RR_DaysDiff < 21 
+							THEN '[011-020]'
+							WHEN VCN_RR_DaysDiff > 20 AND VCN_RR_DaysDiff < 31
+							THEN '[021-030]'
+							WHEN VCN_RR_DaysDiff > 30 AND VCN_RR_DaysDiff < 41
+							THEN '[031-040]'
+							WHEN VCN_RR_DaysDiff > 40 AND VCN_RR_DaysDiff < 51
+							THEN '[041-050]'
+							WHEN VCN_RR_DaysDiff > 50 AND VCN_RR_DaysDiff < 61
+							THEN '[051-060]'
+							WHEN VCN_RR_DaysDiff >= 61 
+							THEN '[061++++]'
+							ELSE 'Other'
+				END) AS [VC_TAT Days Slab],PL.[Project Week],PL.[Project_TAT Week Slab],
+				
+		iif(ChaseStatusID in(5,54,74,75,76,77,78,79,80,81,82,83),'Retrieved','Non-Retrieved') as [Status],PL.Project_Type,PL.Delivery_Mode,PL.Season
+	from ChaseMaster CM
+		Inner Join #ProjectWK as PL on PL.Project_ID = CM.ProjectID
+		Inner Join #RecordInserted as RIDate on RIDate.ChaseID = CM.chaseID  and RIDate.RowNO = 1
+		Left join #RecordRetreived as RRDate on RRDate.ChaseID=CM.ChaseID and RRDate.RowNO = 1
+		Inner join #RetrievalSource as Source on Source.ChaseID = CM.ChaseID and Source.Row_No = 1
+		Left join #VCNote as VCN on VCN.ChaseID = CM.ChaseID and VCN.RowNo = 1
+
+		OUTER APPLY
+						( VALUES (CASE WHEN DATEPART(weekday, RIDate.InsertedDatePST) BETWEEN 2 AND 6 
+									THEN DATEPART(SECOND, RIDate.InsertedDatePST) + DATEPART(HOUR, RIDate.InsertedDatePST) * 3600 + 
+											DATEPART( MINUTE, RIDate.InsertedDatePST) * 60 
+									ELSE 0 
+								END)
+						) DF(RSSecond) 
+					CROSS APPLY
+						( VALUES (CASE WHEN DATEPART(weekday, ISNULL(RRDate.InsertedDatePST, RIDate.InsertedDatePST)) BETWEEN 2 AND 6 
+						THEN 86400 - (DATEPART(SECOND, ISNULL(RRDate.InsertedDatePST, RIDate.InsertedDatePST)) + 
+									DATEPART(HOUR, ISNULL(RRDate.InsertedDatePST, RIDate.InsertedDatePST)) * 3600 + 
+									DATEPART(MINUTE, ISNULL(RRDate.InsertedDatePST, RIDate.InsertedDatePST)) * 60 ) 
+						ELSE 0 
+						END)
+						) DFF(NxtSecond) 
+					CROSS APPLY
+						( VALUES ( ( DATEDIFF(dd, RIDate.InsertedDatePST, ISNULL(RRDate.InsertedDatePST, RIDate.InsertedDatePST)) + 1 
+						) -
+						(DATEDIFF(wk, RIDate.InsertedDatePST, ISNULL(RRDate.InsertedDatePST, RIDate.InsertedDatePST)) * 2 
+						) - 
+						( CASE WHEN DATENAME(dw, RIDate.InsertedDatePST) = 'Sunday' 
+						THEN 1 
+						ELSE 0 
+						END ) - 
+						( CASE WHEN DATENAME(dw, ISNULL(RRDate.InsertedDatePST, RIDate.InsertedDatePST)) = 'Saturday' 
+						THEN 1 
+						ELSE 0 
+						END ) 
+						)
+					) DFFF(RI_RR_DaysDiff)
+			
+			OUTER APPLY
+						( VALUES (CASE WHEN DATEPART(weekday, VCN.InsertedDatePST) BETWEEN 2 AND 6 
+									THEN DATEPART(SECOND, VCN.InsertedDatePST) + DATEPART(HOUR, VCN.InsertedDatePST) * 3600 + 
+											DATEPART( MINUTE, VCN.InsertedDatePST) * 60 
+									ELSE 0 
+								END)
+						) DFV(RSSecond) 
+					CROSS APPLY
+						( VALUES (CASE WHEN DATEPART(weekday, ISNULL(RRDate.InsertedDatePST, VCN.InsertedDatePST)) BETWEEN 2 AND 6 
+						THEN 86400 - (DATEPART(SECOND, ISNULL(RRDate.InsertedDatePST, VCN.InsertedDatePST)) + 
+									DATEPART(HOUR, ISNULL(RRDate.InsertedDatePST, VCN.InsertedDatePST)) * 3600 + 
+									DATEPART(MINUTE, ISNULL(RRDate.InsertedDatePST, VCN.InsertedDatePST)) * 60 ) 
+						ELSE 0 
+						END)
+						) DFFV(NxtSecond) 
+					CROSS APPLY
+						( VALUES ( ( DATEDIFF(dd, VCN.InsertedDatePST, ISNULL(RRDate.InsertedDatePST, VCN.InsertedDatePST)) + 1 
+						) -
+						(DATEDIFF(wk, VCN.InsertedDatePST, ISNULL(RRDate.InsertedDatePST, VCN.InsertedDatePST)) * 2 
+						) - 
+						( CASE WHEN DATENAME(dw, VCN.InsertedDatePST) = 'Sunday' 
+						THEN 1 
+						ELSE 0 
+						END ) - 
+						( CASE WHEN DATENAME(dw, ISNULL(RRDate.InsertedDatePST, VCN.InsertedDatePST)) = 'Saturday' 
+						THEN 1 
+						ELSE 0 
+						END ) 
+						)
+					) DFFFV(VCN_RR_DaysDiff)
+
+
+Drop Table #ProjectWK
+Drop Table #RecordInserted
+Drop Table #RecordRetreived
+Drop Table #ChaseID
+Drop Table #RetrievalSource
+Drop Table #VCNote
