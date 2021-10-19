@@ -1,0 +1,234 @@
+select * from INFORMATION_SCHEMA.COLUMNS 
+where COLUMN_NAME like '%IsShare%' 
+order by TABLE_NAME
+---------------------------------
+select C.COLUMN_NAME FROM  
+INFORMATION_SCHEMA.TABLE_CONSTRAINTS T  
+JOIN INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE C  
+ON C.CONSTRAINT_NAME=T.CONSTRAINT_NAME  
+WHERE  
+C.TABLE_NAME='Chasemaster'  
+and T.CONSTRAINT_TYPE='PRIMARY KEY'
+-----------------------------------
+= Text.Remove([String],{"A".."z"})
+= Text.Select([String],{"0".."9"})
+=Text.Remove([Custom], {" ", "(".."*","-","/"})
+=Text.RemoveRange([Count],0,1)
+--------------------------------------
+
+select CMp.ProjectID,Count(CMP.ChaseID),COUNT(Distinct CMP.ParentDOctorID),CPD.IsVerificationCompleted
+--CMP.ParentDoctorID,CMP.ChaseID,CPD.IsVerificationCompleted
+	from ChaseMaster CMP
+	 inner join	CallCenter_ProviderDetails CPD  on CMP.ParentDoctorID = CPD.ParentDoctorID and CPD.Enabled =1 and CPD.IsVerificationCompleted = 1
+where cpd.ProjectID = 27158
+group by CPD.IsVerificationCompleted,CMp.ProjectID
+-----------------------------------
+USE [RRMisDB]
+GO
+
+/****** Object:  Table [dbo].[CS_tb$]    Script Date: 7/30/2021 4:16:38 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+
+GO
+
+CREATE TABLE [dbo].[CS_tb$](
+	[ParentDoctorID] [nvarchar](255) NULL,
+	[ChaseID] [nvarchar](255) NULL,
+	[ChaseStatusName] [nvarchar](255) NULL,
+	[ChaseActionStatusName] [nvarchar](255) NULL,
+	[ProjectID] [nvarchar](255) NULL,
+	[ProjectName] [nvarchar](255) NULL,
+	[ProjectStart] [datetime] NULL,
+	[ProjectEnd] [datetime] NULL,
+	[ChaseTagging] [nvarchar](255) NULL,
+	[MRTName] [nvarchar](255) NULL,
+	[RetrievalSOurce] [nvarchar](255) NULL,
+	[UploadedDate] [datetime] NULL,
+	[Address1] [nvarchar](255) NULL,
+	[Address2] [nvarchar](255) NULL,
+	[CityName] [nvarchar](255) NULL,
+	[PrimaryContact] [nvarchar](255) NULL,
+	[Fax] [nvarchar](255) NULL,
+	[FacilityName] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+GO
+--------------------------------
+USE [RRMisDB]
+GO
+
+/****** Object:  Table [dbo].[NonCS_tb$]    Script Date: 7/30/2021 4:37:07 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[NonCS_tb$](
+	[ParentDoctorID] [nvarchar](255) NULL,
+	[ChaseID] [nvarchar](255) NULL,
+	[ChaseStatusName] [nvarchar](255) NULL,
+	[ChaseActionStatusName] [nvarchar](255) NULL,
+	[ProjectID] [nvarchar](255) NULL,
+	[ProjectName] [nvarchar](255) NULL,
+	[ProjectStart] [datetime] NULL,
+	[ProjectEnd] [datetime] NULL,
+	[ChaseTagging] [nvarchar](255) NULL,
+	[MRTName] [nvarchar](255) NULL,
+	[RetrievalSOurce] [nvarchar](255) NULL,
+	[UploadedDate] [datetime] NULL,
+	[Address1] [nvarchar](255) NULL,
+	[Address2] [nvarchar](255) NULL,
+	[CityName] [nvarchar](255) NULL,
+	[PrimaryContact] [nvarchar](255) NULL,
+	[Fax] [nvarchar](255) NULL,
+	[FacilityName] [nvarchar](255) NULL
+) ON [PRIMARY]
+----------------------------------------------------
+CM_.Projectname,CM_.ClientName,FName.FacilityName,CM_.ParentDoctorID,CM_.DoctorID,
+REPLACE(REPLACE(REPLACE(ISNULL(CM_.DFirstName,'') + ' ' + ISNULL(CM_.DLastName,''), CHAR(9),' '),CHAR(13),' '), CHAR(10),' ') AS [Provider Name],
+REPLACE(REPLACE(REPLACE(ISNULL(CM_.PDFirstName,'') + ' ' + ISNULL(CM_.PDLastName,''), CHAR(9),' '),CHAR(13),' '), CHAR(10),' ') AS [Parent Provider Name],
+-------------------------------------------------------
+GO
+-----------------------------------
+USE [RRMisDB]
+GO
+
+delete FROM [dbo].[CS_tb$]
+     
+GO
+
+USE [RRMisDB]
+GO
+
+Select * FROM [dbo].[CS_tb$]
+     
+GO
+---------------------------------
+OUTER APPLY(
+   SELECT STUFF(
+		  (
+				 SELECT ',' + Name
+				 FROM PMO_ProjectTypeMapping WITH(NOLOCK)
+				 INNER JOIN ProjectType WITH(NOLOCK) ON ProjectType.ID = PMO_ProjectTypeMapping.ProjectTypeID
+				 WHERE PMO_ProjectTypeMapping.ProjectID = CM_.ProjectID FOR XML PATH ('')
+		  ), 1, 1, '') AS Projecttype
+----------------------------------
+	outer apply(
+					Select top 1 cnm.ActionName,cnm.InsertedDatePST 
+						from ChaseNoteDetails CND
+							inner join ChaseNoteMaster CNM on CNM.ChaseNoteID = CND.ChaseNoteID
+							inner join ChaseMaster CM on CM.ChaseID =CND.ChaseID
+						where CM.ChaseID = CM_.ChaseID and cnm.ActionID =73 --QC Accepted
+						order by cnm.InsertedDatePST desc
+				) as QCD
+
+-----------------------------
+select distinct CM.ParentDoctorID,CD.IsShare,CD.Enabled,CD.ProviderType,cd.insertedDate,CD.insertedby,CD.ModifiedBy,CD.ModifiedDate,UM.EmployeeID,
+um.UserName,CD.TATType,cd.TATValue,CD.FacilityName,
+CASE	when CD.IsShare= 0 then 'Yes' 
+					When CD.IsShare= 1 then 'No' 
+					When CD.IsShare= 2 then 'Not Share' 
+					When CD.IsShare= 3 then 'NA' 
+	else null end  as 'IsShareChart'
+	from Chasemaster CM
+	LEFT OUTER JOIN CallCenter_ProviderDetails CD WITH(NOLOCK) ON CD.ParentDoctorID = CM.ParentDoctorID --AND CD.Enabled = 1
+	left  outer join UserMaster UM on UM.Userid = cd.insertedby
+
+where 
+CM.ParentDoctorID in( 8308559) 
+--and CM.chaseid in (22050849)
+order by cd.insertedDate desc 
+-----------------------------------
+OUTER APPLY
+						( VALUES (CASE WHEN DATEPART(weekday, RecordAttach) BETWEEN 2 AND 6 
+									THEN DATEPART(SECOND, RecordAttach) + DATEPART(HOUR, RecordAttach) * 3600 + 
+											DATEPART( MINUTE, RecordAttach) * 60 
+									ELSE 0 
+								END)
+						) DF(RSSecond) 
+					CROSS APPLY
+						( VALUES (CASE WHEN DATEPART(weekday, ISNULL(QCA.InsertedDatePST, RecordAttach)) BETWEEN 2 AND 6 
+						THEN 86400 - (DATEPART(SECOND, ISNULL(QCA.InsertedDatePST, RecordAttach)) + 
+									DATEPART(HOUR, ISNULL(QCA.InsertedDatePST, RecordAttach)) * 3600 + 
+									DATEPART(MINUTE, ISNULL(QCA.InsertedDatePST, RecordAttach)) * 60 ) 
+						ELSE 0 
+						END)
+						) DFF(NxtSecond) 
+					CROSS APPLY
+						( VALUES ( ( DATEDIFF(dd, RecordAttach, ISNULL(QCA.InsertedDatePST, RecordAttach)) + 1 
+						) -
+						(DATEDIFF(wk, RecordAttach, ISNULL(QCA.InsertedDatePST, RecordAttach)) * 2 
+						) - 
+						( CASE WHEN DATENAME(dw, RecordAttach) = 'Sunday' 
+						THEN 1 
+						ELSE 0 
+						END ) - 
+						( CASE WHEN DATENAME(dw, ISNULL(QCA.InsertedDatePST, RecordAttach)) = 'Saturday' 
+						THEN 1 
+						ELSE 0 
+						END ) 
+						)
+					) DFFF(DaysDiff) 
+				CROSS APPLY
+					( VALUES ( CONVERT(NUMERIC(18,2), 
+										( ( DaysDiff * 24 * 3600) - (RSSecond + NxtSecond) ) / 3600.00)) 
+					) D(DiffHR)   
+DiffHR AS [Imaging TAT Hours],
+				(
+				CASE WHEN DiffHR < 0 THEN '[-0]'
+					WHEN DiffHR >= 0 AND DiffHR < 12 
+					THEN '[0-11]'
+							WHEN DiffHR > 11 AND DiffHR < 25 
+							THEN '[12-24]'
+							WHEN DiffHR > 24 AND DiffHR < 37
+							THEN '[25-36]'
+							WHEN DiffHR >= 37 
+							THEN '37+'
+							ELSE 'Other'
+				END) AS [Imaging TAT Hours Slab]
+
+------------------------------------------------------
+  select Cm.ChaseID,Source.UploadedDate, convert(varchar(10),Source.UploadedDate, 101) [UploadDate],Source.[MRT Name],Source.[RetrievalSOurce],
+       convert(varchar(10),dm.inserteddate,101) as [ChartAttachedDate],RecordAttach AS  [Records Attached Date(PST)]
+	from ChaseMaster Cm
+	inner join dbo.DocumentMaster dm on dm.ChaseID = cm.ChaseID and dm.DocumentLibraryID = 1 and dm.[Enabled] = 1 
+			CROSS APPLY(VALUES (dbo.udf_GetLocalDateTime(dm.InsertedDate, 5))) dmm(RecordAttach) 
+
+			Outer apply( 
+		SELECT   top (1) dbo.DriverFileUpload.DriverName as [MRT Name],DriverFileUpload.UploadedDate,RTm.RetrievalTypeName as RetrievalSOurce,DM1.DocumentStatusName
+        FROM dbo.DriverFileUpload WITH ( NOLOCK )     INNER JOIN dbo.UploadedDocumentPoolMaster       ON dbo.DriverFileUpload.DriverFileUploadID = dbo.UploadedDocumentPoolMaster.DriveFileUploadID
+Inner join DocumentMaster as DM1 on DM1.UploadedDocumentPoolID = dbo.UploadedDocumentPoolMaster.UploadedDocumentPoolID AND DM1.DocumentLibraryID IN (1,2) Inner Join RetrievalTypeMaster as RTM on RTM.RetrievalTypeID = DM1.RetrievalTypeID 
+Where DM1.chaseID =CM.ChaseID Order By DriverFileUpload.UploadedDate DESC) as Source 
+
+where cm.ChaseID =22626553
+------------------------------------------------------------------------------
+  outer apply (
+                           select top 1 cs.statusname, chm.insertdate as lastdate
+                           from dbo.chasehistorymaster chm inner join 
+                           dbo.chasestatus cs
+                           on cs.chasestatusid = chm.chasestatusid
+                           where chm.chaseid = cm.chaseid
+                           order by chm.chasehistoryid desc
+                 ) pcs --- Last Chase Status Details i.e. Last Chase Status Name & Date
+                  outer apply (
+                        select top 1 nm.ActionID
+                        from ChaseNoteDetails dt inner join
+                        ChaseMaster cm1
+                        on cm1.ChaseID = dt.ChaseID inner join
+                        ChaseNoteMaster nm
+                        on nm.ChaseNoteID = dt.ChaseNoteID
+                        where dt.ChaseID = cm.ChaseID and nm.ActionID = 73
+                  ) QC --- QC Accepted YES/NO
+---------------------------------------------------------------
+select top 1 CM_.ParentDoctorID,ISNULL(REPLACE(REPLACE(REPLACE(ISNULL(CM_.DFirstName,'') + ' ' + ISNULL(CM_.DLastName,''), CHAR(9),' '),CHAR(13),' '), CHAR(10),' '),pmo.FacilityName) AS [Provider/Facility Name]
+				,PGM.GroupName as [Provider Group]
+	from ChaseMaster CM_
+		left join ProviderGroupMaster PGM on PGm.ProviderGroupID = CM_.ProviderGroupID
+		inner join PMO_ExcelImportMaster pmo on pmo.RFDoctorID =CM_.DoctorID
+where CM_.DoctorID = 7362369
+order by CM_.InsertedDate desc
+-------------------------------------------------
