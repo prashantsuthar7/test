@@ -232,3 +232,12 @@ select top 1 CM_.ParentDoctorID,ISNULL(REPLACE(REPLACE(REPLACE(ISNULL(CM_.DFirst
 where CM_.DoctorID = 7362369
 order by CM_.InsertedDate desc
 -------------------------------------------------
+
+Classic Model
+https://app.powerbi.com/Redirect?action=OpenApp&appId=5e69f716-5577-44af-b3dd-62e81a2ffb7e&ctid=bf51fd69-5638-4be5-92af-0a341b9f0f3b
+
+Dark Sales Ranking
+https://app.powerbi.com/Redirect?action=OpenApp&appId=9e51f6cb-d768-4c96-933d-8924158c77fe&ctid=bf51fd69-5638-4be5-92af-0a341b9f0f3b
+
+Management Insights
+https://app.powerbi.com/Redirect?action=OpenApp&appId=4a909472-0ef9-4a5f-bd4a-beadd03cd7ac&ctid=bf51fd69-5638-4be5-92af-0a341b9f0f3b
